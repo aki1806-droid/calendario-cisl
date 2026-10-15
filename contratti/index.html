@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I contratti del pubblico impiego · CISL FP Padova Rovigo</title>
+<meta name="description" content="Sanità, Funzioni Locali, Funzioni Centrali: a chi si applicano, le ultime novità e il testo da scaricare. A cura della CISL FP Padova Rovigo.">
+<meta name="theme-color" content="#00623A">
+<link rel="icon" href="../assets/logo-cisl-fp-padova-rovigo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/stile.css">
+<script>
+/* ============================================================
+   CONFIGURAZIONE: incolla qui i link di Google Drive.
+   Se un link è vuoto, il pulsante mostra "Disponibile a breve".
+   ============================================================ */
+const DRIVE = {
+  sanita:   "",   // es. https://drive.google.com/file/d/.../view
+  locali:   "",
+  centrali: "",
+  cartella: ""    // cartella con tutti i contratti (facoltativa)
+};
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a href="../"><img src="../assets/logo-cisl-fp-padova-rovigo.png" alt="CISL FP Padova Rovigo"></a>
+  <nav><a href="#sanita">SANITÀ</a><a href="#locali">LOCALI</a><a href="#centrali">CENTRALI</a></nav>
+</div></header>
+
+<section class="hero" style="background-image:url('../assets/sanita.jpg')">
+  <div class="wrap">
+    <span class="kicker">I CONTRATTI</span>
+    <h1>Il tuo contratto,<br>a portata di mano.</h1>
+    <p>Sanità, Funzioni Locali, Funzioni Centrali: a chi si applicano, cosa cambia con gli ultimi rinnovi e il testo da scaricare.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="azioni">
+    <a class="btn btn-v" href="#sanita">Sanità</a>
+    <a class="btn btn-v" href="#locali">Funzioni Locali</a>
+    <a class="btn btn-v" href="#centrali">Funzioni Centrali</a>
+    <a class="btn btn-b" id="btn-cartella" href="#">Tutti i contratti</a>
+  </div>
+
+  <section class="sez">
+    <h2>Scegli il tuo comparto</h2>
+    <p class="sub">Non sai quale contratto ti riguarda? Dipende da dove lavori: ospedale e ULSS, Comune o Regione, Ministero o ente nazionale.</p>
+    <div class="grid">
+
+      <article class="card comparto" id="sanita">
+        <img src="../assets/sanita.jpg" alt="Personale sanitario in corsia" loading="lazy">
+        <div class="corpo">
+          <h3>Sanità</h3>
+          <p class="chi"><b>Per chi lavora nel Servizio sanitario nazionale</b> (personale non dirigente): infermieri, ostetriche, OSS, tecnici sanitari, della riabilitazione e della prevenzione, amministrativi, personale di supporto e della ricerca sanitaria.</p>
+          <div class="stato"><b>Ultimi rinnovi.</b> CCNL 2022-2024 firmato in via definitiva il 27 ottobre 2025. Ipotesi di rinnovo 2025-2027 siglata all'ARAN il 29 luglio 2026: circa 209 euro lordi mensili medi a regime, 240 per gli infermieri.</div>
+          <details><summary>Le novità principali</summary><ul>
+            <li>Nasce il profilo dell'<b>assistente infermiere</b>, tra gli operatori sanitari e i professionisti della salute.</li>
+            <li>Rivista l'indennità di <b>pronto soccorso</b> e quelle di specificità infermieristica e tutela del malato.</li>
+            <li>Misure di <b>age management</b>, tra cui l'esonero dal lavoro notturno per il personale più anziano.</li>
+            <li><b>Tutela legale</b> per chi subisce aggressioni sul lavoro.</li>
+            <li>Nel rinnovo 2025-2027, prime regole contrattuali sull'<b>intelligenza artificiale</b>.</li>
+          </ul></details>
+          <div class="azioni-card">
+            <a class="btn btn-v dl" data-k="sanita" href="#">Scarica il contratto</a>
+            <a class="btn btn-b" href="../contatti/#team">Parla con un delegato</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card comparto" id="locali">
+        <img src="../assets/funzioni-locali.jpg" alt="Municipio e servizi al cittadino" loading="lazy">
+        <div class="corpo">
+          <h3>Funzioni Locali</h3>
+          <p class="chi"><b>Per chi lavora negli enti territoriali:</b> Comuni, Province, Città metropolitane, Regioni, Camere di commercio e unioni di comuni. Oltre 400 mila lavoratrici e lavoratori.</p>
+          <div class="stato"><b>Ultimo rinnovo definitivo.</b> CCNL 2022-2024 firmato in via definitiva a febbraio 2026, con arretrati e nuove tabelle retributive. Per il rinnovo 2025-2027 chiedi ai delegati lo stato aggiornato.</div>
+          <details><summary>Le novità principali</summary><ul>
+            <li><b>Buoni pasto</b> riconosciuti anche nelle giornate di lavoro agile, secondo le regole del contratto.</li>
+            <li>Più spazio a <b>lavoro agile</b> e organizzazione flessibile dell'orario.</li>
+            <li>Retribuzione di posizione delle <b>Elevate Qualificazioni</b> fino a 22 mila euro annui.</li>
+            <li>Arretrati del periodo di vacanza contrattuale e nuovi tabellari.</li>
+          </ul></details>
+          <div class="azioni-card">
+            <a class="btn btn-v dl" data-k="locali" href="#">Scarica il contratto</a>
+            <a class="btn btn-b" href="../contatti/#team">Parla con un delegato</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card comparto" id="centrali">
+        <img src="../assets/funzioni-centrali.jpg" alt="Ufficio di una amministrazione centrale" loading="lazy">
+        <div class="corpo">
+          <h3>Funzioni Centrali</h3>
+          <p class="chi"><b>Per chi lavora nelle amministrazioni centrali:</b> Ministeri, Agenzie fiscali, enti pubblici non economici come INPS e INAIL, e gli altri enti nazionali del comparto.</p>
+          <div class="stato"><b>Ultimo rinnovo.</b> CCNL 2025-2027 firmato in via definitiva il 6 agosto 2026: circa 162 euro lordi mensili medi a regime dal 1° gennaio 2027. È il primo contratto del comparto firmato dentro il suo triennio.</div>
+          <details><summary>Le novità principali</summary><ul>
+            <li>Un intero titolo dedicato all'<b>intelligenza artificiale</b> nel lavoro pubblico.</li>
+            <li>Più strumenti di <b>conciliazione vita-lavoro</b>.</li>
+            <li>Aumenti in tre tranche, dal 2025 al 2027, con arretrati pagati da NoiPA.</li>
+          </ul></details>
+          <div class="azioni-card">
+            <a class="btn btn-v dl" data-k="centrali" href="#">Scarica il contratto</a>
+            <a class="btn btn-b" href="../contatti/#team">Parla con un delegato</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="nota">Queste schede sono una sintesi a cura della CISL FP Padova Rovigo, aggiornata a ottobre 2026: fa fede il testo del contratto. I testi ufficiali sono pubblicati anche sul sito dell'<a href="https://www.aranagenzia.it" target="_blank" rel="noopener">ARAN</a>.</p>
+  </section>
+
+  <section class="cta">
+    <div>
+      <h2>Un contratto si capisce meglio insieme.</h2>
+      <p>Dubbi su un articolo, un'indennità, un permesso? I delegati CISL FP te lo spiegano, e ti accompagnano se qualcosa non torna.</p>
+    </div>
+    <div style="display:grid;gap:10px">
+      <a class="btn btn-r" href="https://cislfppadovarovigo.it/iscriviti" target="_blank" rel="noopener">Iscriviti alla CISL FP</a>
+      <a class="btn btn-b" href="../contatti/">Contatti e sedi</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <strong>CISL FP Padova Rovigo</strong>
+  <span>Via del Carmine 3, Padova · 049 822 0630 · Viale Tre Martiri 87/a, Rovigo · 0425 399 239</span>
+  <span><a href="mailto:fp.padova.rovigo@cisl.it">fp.padova.rovigo@cisl.it</a> · <a href="https://cislfppadovarovigo.it" target="_blank" rel="noopener">cislfppadovarovigo.it</a> · <a href="https://www.facebook.com/Cislfppadovarovigo/" target="_blank" rel="noopener">Facebook</a></span>
+</div></footer>
+
+<script>
+document.querySelectorAll(".dl").forEach(b => {
+  const url = DRIVE[b.dataset.k];
+  if (url) { b.href = url; b.target = "_blank"; b.rel = "noopener"; }
+  else { b.textContent = "Disponibile a breve"; b.setAttribute("aria-disabled", "true"); }
+});
+const c = document.getElementById("btn-cartella");
+if (DRIVE.cartella) { c.href = DRIVE.cartella; c.target = "_blank"; c.rel = "noopener"; }
+else { c.href = "#sanita"; }
+</script>
+</body>
+</html>
