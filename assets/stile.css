@@ -59,3 +59,20 @@ details ul{margin:10px 0 2px 18px;font-size:.92rem}
 details li{margin:6px 0}
 .azioni-card{display:grid;gap:10px;margin-top:auto}
 .nota{font-size:.8rem;color:var(--grigio);margin-top:20px}
+.arrivo{border-top:6px solid var(--rosso);display:flex;flex-direction:column;gap:12px}
+.etichetta{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--rosso)}
+.arrivo h3{font-family:"Playfair Display",Georgia,serif;font-size:1.35rem;color:var(--verde);font-weight:700;line-height:1.2}
+.cifra{font-size:.92rem}
+.cifra b{color:var(--scuro);font-size:1.05rem}
+.iter{list-style:none;counter-reset:passo;display:grid;gap:0;font-size:.9rem}
+.iter li{counter-increment:passo;position:relative;padding:0 0 14px 40px}
+.iter li::before{content:counter(passo);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.75rem;font-weight:800;background:#fff;color:var(--grigio);border:2px solid var(--linea)}
+.iter li::after{content:"";position:absolute;left:12px;top:28px;bottom:2px;width:2px;background:var(--linea)}
+.iter li:last-child{padding-bottom:0}
+.iter li:last-child::after{display:none}
+.iter li span{display:block;color:var(--grigio);font-size:.82rem}
+.iter li.fatto::before{content:"✓";background:var(--verde);border-color:var(--verde);color:#fff}
+.iter li.fatto::after{background:var(--verde)}
+.iter li.ora::before{background:var(--rosso);border-color:var(--rosso);color:#fff}
+.iter li.ora span{color:var(--rosso);font-weight:700}
+.sez,.comparto{scroll-margin-top:80px}

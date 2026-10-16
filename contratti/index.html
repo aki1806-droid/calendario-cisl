@@ -19,7 +19,10 @@ const DRIVE = {
   sanita:   "https://drive.google.com/file/d/1ri6jiS6Y9YJqltg_WjnLZLxnCzbFJnJF/view",   // es. https://drive.google.com/file/d/.../view
   locali:   "https://drive.google.com/file/d/1TsWoT8krWt3B7oNlUpqenGaHIhWNc_UX/view",
   centrali: "https://drive.google.com/file/d/1-QtiQUQVn6D4BcigcTHNRZ3WrgQL9jEr/view",
-  cartella: ""    // cartella con tutti i contratti (facoltativa)
+  cartella: "",   // cartella con tutti i contratti (facoltativa)
+  // Testi delle ipotesi ancora da firmare (facoltativi: se vuoti il pulsante non compare)
+  ipotesi_sanita: "",
+  ipotesi_locali: ""
 };
 </script>
 </head>
@@ -33,7 +36,7 @@ const DRIVE = {
   <div class="wrap">
     <span class="kicker">I CONTRATTI</span>
     <h1>Il tuo contratto,<br>a portata di mano.</h1>
-    <p>Sanità, Funzioni Locali, Funzioni Centrali: a chi si applicano, cosa cambia con gli ultimi rinnovi e il testo da scaricare.</p>
+    <p>Sanità, Funzioni Locali, Funzioni Centrali: a chi si applicano, cosa cambia con gli ultimi rinnovi, quelli in arrivo e il testo da scaricare.</p>
   </div>
 </section>
 
@@ -42,8 +45,49 @@ const DRIVE = {
     <a class="btn btn-v" href="#sanita">Sanità</a>
     <a class="btn btn-v" href="#locali">Funzioni Locali</a>
     <a class="btn btn-v" href="#centrali">Funzioni Centrali</a>
+    <a class="btn btn-r" href="#in-arrivo">In arrivo</a>
     <a class="btn btn-b" id="btn-cartella" href="#">Tutti i contratti</a>
   </div>
+
+  <section class="sez" id="in-arrivo">
+    <h2>In arrivo: i rinnovi da firmare</h2>
+    <p class="sub">Per Sanità e Funzioni Locali l'accordo 2025-2027 è stato raggiunto all'ARAN, ma è ancora un'<b>ipotesi</b>: aumenti e arretrati arrivano in busta paga solo dopo la firma definitiva.</p>
+    <div class="grid">
+
+      <article class="card arrivo">
+        <span class="etichetta">Comparto Sanità · 2025-2027</span>
+        <h3>Ipotesi firmata il 29 luglio 2026</h3>
+        <p class="cifra"><b>+209 €</b> lordi mensili medi a regime<br><b>+240 €</b> per il personale infermieristico</p>
+        <ol class="iter">
+          <li class="fatto"><b>Ipotesi firmata all'ARAN</b><span>29 luglio 2026</span></li>
+          <li class="ora"><b>Parere del Governo</b><span>in corso</span></li>
+          <li><b>Certificazione della Corte dei conti</b></li>
+          <li><b>Firma definitiva</b><span>poi aumenti e arretrati in busta paga</span></li>
+        </ol>
+        <div class="azioni-card">
+          <a class="btn btn-v ip" data-k="ipotesi_sanita" href="#">Testo dell'ipotesi</a>
+          <a class="btn btn-b" href="#sanita">Il contratto in vigore</a>
+        </div>
+      </article>
+
+      <article class="card arrivo">
+        <span class="etichetta">Funzioni Locali · 2025-2027</span>
+        <h3>Ipotesi firmata il 21 luglio 2026</h3>
+        <p class="cifra"><b>+150 €</b> lordi mensili medi a regime dal 2027<br>circa 45 € nel 2025 e 91 € nel 2026</p>
+        <ol class="iter">
+          <li class="fatto"><b>Ipotesi firmata all'ARAN</b><span>21 luglio 2026</span></li>
+          <li class="fatto"><b>Parere del Governo</b><span>favorevole, 2 ottobre 2026</span></li>
+          <li class="ora"><b>Certificazione della Corte dei conti</b><span>in corso</span></li>
+          <li><b>Firma definitiva</b><span>poi aumenti e arretrati in busta paga</span></li>
+        </ol>
+        <div class="azioni-card">
+          <a class="btn btn-v ip" data-k="ipotesi_locali" href="#">Testo dell'ipotesi</a>
+          <a class="btn btn-b" href="#locali">Il contratto in vigore</a>
+        </div>
+      </article>
+    </div>
+    <p class="nota">Stato aggiornato a metà ottobre 2026. I tempi tra un passaggio e l'altro non sono fissati per legge: per sapere quando arrivano gli arretrati nel tuo ente, chiedi ai delegati.</p>
+  </section>
 
   <section class="sez">
     <h2>Scegli il tuo comparto</h2>
@@ -75,7 +119,7 @@ const DRIVE = {
         <div class="corpo">
           <h3>Funzioni Locali</h3>
           <p class="chi"><b>Per chi lavora negli enti territoriali:</b> Comuni, Province, Città metropolitane, Regioni, Camere di commercio e unioni di comuni. Oltre 400 mila lavoratrici e lavoratori.</p>
-          <div class="stato"><b>Ultimo rinnovo definitivo.</b> CCNL 2022-2024 firmato in via definitiva a febbraio 2026, con arretrati e nuove tabelle retributive. Per il rinnovo 2025-2027 chiedi ai delegati lo stato aggiornato.</div>
+          <div class="stato"><b>Ultimo rinnovo definitivo.</b> CCNL 2022-2024 firmato in via definitiva a febbraio 2026, con arretrati e nuove tabelle retributive. Ipotesi di rinnovo 2025-2027 firmata all'ARAN il 21 luglio 2026: circa 150 euro lordi mensili medi a regime.</div>
           <details><summary>Le novità principali</summary><ul>
             <li><b>Buoni pasto</b> riconosciuti anche nelle giornate di lavoro agile, secondo le regole del contratto.</li>
             <li>Più spazio a <b>lavoro agile</b> e organizzazione flessibile dell'orario.</li>
@@ -133,6 +177,11 @@ document.querySelectorAll(".dl").forEach(b => {
   const url = DRIVE[b.dataset.k];
   if (url) { b.href = url; b.target = "_blank"; b.rel = "noopener"; }
   else { b.textContent = "Disponibile a breve"; b.setAttribute("aria-disabled", "true"); }
+});
+document.querySelectorAll(".ip").forEach(b => {
+  const url = DRIVE[b.dataset.k];
+  if (url) { b.href = url; b.target = "_blank"; b.rel = "noopener"; }
+  else { b.remove(); }
 });
 const c = document.getElementById("btn-cartella");
 if (DRIVE.cartella) { c.href = DRIVE.cartella; c.target = "_blank"; c.rel = "noopener"; }
