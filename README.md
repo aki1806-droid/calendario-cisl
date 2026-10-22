@@ -1,9 +1,12 @@
-# Sito del Calendario dei diritti 2027 · CISL FP Padova Rovigo
+# Sito del Calendario dei diritti 2027 · CISL FP
 
-Due pagine pensate per il telefono, raggiunte dai QR code dell'ultima pagina del calendario:
-- `contatti/` → sedi, telefoni, email, segreteria e team (con filtro per settore e "Salva nei contatti")
+Pagine pensate per il telefono, raggiunte dai QR code dell'ultima pagina del calendario:
+- `contatti/` → scelta del territorio, poi `contatti/padova-rovigo/` e `contatti/verona/` (sedi, telefoni, email, team con filtro per settore, "Salva nei contatti")
+- `iscriviti/` → scelta del territorio, poi la pagina di iscrizione del sito territoriale
 - `contratti/` → Sanità, Funzioni Locali, Funzioni Centrali: a chi si applicano, novità, pulsante per scaricare il testo
-- `index.html` → pagina di ingresso con i collegamenti
+- `index.html` → pagina di ingresso
+
+Per aggiungere un altro territorio: copia la cartella `contatti/verona/`, modifica i dati e aggiungi una scheda nelle pagine `contatti/index.html` e `iscriviti/index.html`.
 
 ## Pubblicare su GitHub Pages
 1. Crea un nuovo repository pubblico, chiamato esattamente `calendario-cisl` (tutto minuscolo: è l indirizzo contenuto nei QR del calendario).
@@ -22,4 +25,4 @@ Su Drive imposta la condivisione dei file su "Chiunque abbia il link può visual
 Finché un link è vuoto, il pulsante mostra "Disponibile a breve".
 
 ## Aggiornare i contatti
-In `contatti/index.html`, in fondo, ci sono gli elenchi SEGRETERIA e TEAM: basta modificare nome, ruolo, settori, telefono ed email.
+In `contatti/padova-rovigo/index.html` e `contatti/verona/index.html`, in fondo, ci sono gli elenchi SEGRETERIA e TEAM: basta modificare nome, ruolo, settori, telefono ed email.
