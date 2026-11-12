@@ -197,7 +197,9 @@ footer a{color:#fff}
     {id:'w3', n:'Settimana 3', date:'15-21 dicembre', img:'img/part-time.jpg', canale:'Instagram', dove:'nelle storie di @cislaop su Instagram', released:false, hash:'f6e978d7be539aa32c529dc0e13c5c35d8f60b75c8c8803d5550910630c50603',
      title:'Part time 2026: i 135 posti', desc:'Posti per profilo, orari possibili e calcolo del tuo punteggio in graduatoria.',
      tool:'strumenti/part-time-2026.html', pdf:'scarica/guida-part-time-2026.pdf', toolLbl:'Calcola i tuoi punti', pdfLbl:'Guida e scheda part time'},
-    {id:'w4', n:'Settimana 4', canale:'TikTok', released:false, title:'Notti, pronta disponibilità e reparti complessi', desc:'Quanto ti spetta con le quote in più del 2026.'},
+    {id:'w4', n:'Settimana 4', date:'22-28 dicembre', img:'img/notti.jpg', canale:'TikTok', dove:'a voce nel video TikTok di CISL FP AOUP', released:false, hash:'1933354213c8a904bc8c1e161ba3d5f7691fc06ad826606cd53bb76f34b80a3f',
+     title:'Notti, pronta disponibilità e reparti complessi', desc:'Quanto ti spetta con le quote in più del 2026.',
+     tool:'strumenti/notti-pronta-disponibilita-2026.html', pdf:'scarica/guida-notti-pronta-disponibilita-2026.pdf', toolLbl:'Calcola quanto ti spetta', pdfLbl:'Guida e scheda notti'},
     {id:'w5', n:'Settimana 5', canale:'Instagram', released:false, title:'Il mio orario giusto', desc:'I minuti di vestizione e consegne che ti spettano, turno per turno.'},
     {id:'w6', n:'Settimana 6', canale:'YouTube', released:false, title:'Ferie solidali', desc:'Quanti giorni puoi donare o chiedere, con i moduli pronti.'}
   ];
@@ -213,7 +215,7 @@ footer a{color:#fff}
       const open = has(w.id), num = w.n.replace(/\D/g,'');
       const body = open
         ? `<div class="pair"><a class="use" href="${w.tool}">${icoTool}<span>${w.toolLbl}<small>Strumento da usare online</small></span></a><a href="${w.pdf}" download>${icoPdf}<span>${w.pdfLbl}<small>Guida da scaricare in PDF</small></span></a></div>`
-        : `<div class="lockbox"><label for="in-${w.id}">${icoLock} Scrivi il codice che trovi ${w.dove||'su '+w.canale}</label><div class="unlock"><input id="in-${w.id}" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Codice"><button type="button" data-w="${w.id}">Sblocca</button></div><p class="err" id="err-${w.id}" aria-live="polite"></p></div>`;
+        : `<div class="lockbox"><label for="in-${w.id}">${icoLock} Scrivi il codice che ${w.id==='w4'?'senti':'trovi'} ${w.dove||'su '+w.canale}</label><div class="unlock"><input id="in-${w.id}" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Codice"><button type="button" data-w="${w.id}">Sblocca</button></div><p class="err" id="err-${w.id}" aria-live="polite"></p></div>`;
       const tag = open ? `<span class="pill ok">Sbloccato</span>` : `<span class="pill y">Codice su ${w.canale}</span>`;
       return `<article class="week live${popId===w.id?' pop':''}" id="card-${w.id}"><div class="ph" style="background-image:url(${w.img||'img/scrivania.jpg'})"><span class="wn" aria-hidden="true">${num}</span></div><div class="body"><div class="top"><span class="pill">${w.n}${w.date?' · '+w.date:''}</span>${tag}</div><h3>${w.title}</h3><p>${w.desc}</p>${body}</div></article>`;
     }).join('');
