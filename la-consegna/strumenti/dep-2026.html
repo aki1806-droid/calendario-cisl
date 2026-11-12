@@ -179,7 +179,7 @@ footer{font-size:14.5px}
 <div class="gate hidden" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateT">
   <div class="box">
     <h2 id="gateT">Questo strumento si sblocca con il codice della settimana</h2>
-    <p>Il codice di questa settimana arriva solo a chi ci segue su <span class="where">Instagram</span>: commenta <strong>DEP</strong> sotto l’ultimo post di @cislaop e ti arriva in privato. Scrivilo qui e lo strumento resta sbloccato su questo dispositivo.</p>
+    <p>Il codice di questa settimana è solo per chi ci segue su <span class="where">Instagram</span>: compare nelle storie di @cislaop e resta visibile 24 ore. Seguici e attiva le notifiche delle storie per non perderlo. Scrivilo qui e lo strumento resta sbloccato su questo dispositivo.</p>
     <label for="gateIn" class="hidden">Codice</label>
     <input id="gateIn" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Codice">
     <button type="button" id="gateBtn">Sblocca</button>
@@ -341,7 +341,7 @@ footer{font-size:14.5px}
   async function sha(t){ const b=await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join(''); }
   async function prova(){
     const v=document.getElementById('gateIn').value.trim().toUpperCase().replace(/\s+/g,'');
-    if(!v){ document.getElementById('gateErr').textContent='Scrivi il codice che trovi su Instagram.'; return; }
+    if(!v){ document.getElementById('gateErr').textContent='Scrivi il codice che trovi nelle storie di @cislaop su Instagram.'; return; }
     if(await sha(v)===HASH){ try{localStorage.setItem(KEY,'ok');}catch(e){} g.classList.add('hidden'); document.body.style.overflow=''; }
     else document.getElementById('gateErr').textContent='Il codice non è corretto. Controlla di aver preso quello di questa settimana.';
   }
