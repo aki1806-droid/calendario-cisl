@@ -203,7 +203,9 @@ footer a{color:#fff}
     {id:'w5', n:'Settimana 5', date:'29 dicembre - 4 gennaio', img:'img/orario.jpg', canale:'Instagram', dove:'nelle storie di @cislaop su Instagram', released:false, hash:'a9a27980bb3d3e48ffde7c3657c678b83119ed180a40c315eab96e24626667e0',
      title:'Il mio orario giusto', desc:'I minuti di vestizione e consegne che ti spettano, turno per turno.',
      tool:'strumenti/orario-vestizione-consegne.html', pdf:'scarica/guida-orario-vestizione-consegne.pdf', toolLbl:'Controlla il tuo orario', pdfLbl:'Guida e scheda orario'},
-    {id:'w6', n:'Settimana 6', canale:'YouTube', released:false, title:'Ferie solidali', desc:'Quanti giorni puoi donare o chiedere, con i moduli pronti.'}
+    {id:'w6', n:'Settimana 6', date:'5-11 gennaio', img:'img/ferie.jpg', canale:'YouTube', dove:'a voce nello Short YouTube di @cislfpaoup', released:false, hash:'95995d379c2e03279c1ca038475617787afb08c46ef72e400da7c49f18cf2c01',
+     title:'Ferie solidali', desc:'Quanti giorni puoi donare o chiedere, con i moduli pronti.',
+     tool:'strumenti/ferie-solidali.html', pdf:'scarica/guida-ferie-solidali.pdf', toolLbl:'Dona o chiedi giorni', pdfLbl:'Guida e moduli ferie solidali'}
   ];
   const has = k => { try { return localStorage.getItem('laconsegna-'+k)==='ok'; } catch(e){ return false; } };
   async function sha(t){ const b=await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join(''); }
@@ -217,7 +219,7 @@ footer a{color:#fff}
       const open = has(w.id), num = w.n.replace(/\D/g,'');
       const body = open
         ? `<div class="pair"><a class="use" href="${w.tool}">${icoTool}<span>${w.toolLbl}<small>Strumento da usare online</small></span></a><a href="${w.pdf}" download>${icoPdf}<span>${w.pdfLbl}<small>Guida da scaricare in PDF</small></span></a></div>`
-        : `<div class="lockbox"><label for="in-${w.id}">${icoLock} Scrivi il codice che ${w.id==='w4'?'senti':'trovi'} ${w.dove||'su '+w.canale}</label><div class="unlock"><input id="in-${w.id}" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Codice"><button type="button" data-w="${w.id}">Sblocca</button></div><p class="err" id="err-${w.id}" aria-live="polite"></p></div>`;
+        : `<div class="lockbox"><label for="in-${w.id}">${icoLock} Scrivi il codice che ${(w.id==='w4'||w.id==='w6')?'senti':'trovi'} ${w.dove||'su '+w.canale}</label><div class="unlock"><input id="in-${w.id}" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Codice"><button type="button" data-w="${w.id}">Sblocca</button></div><p class="err" id="err-${w.id}" aria-live="polite"></p></div>`;
       const tag = open ? `<span class="pill ok">Sbloccato</span>` : `<span class="pill y">Codice su ${w.canale}</span>`;
       return `<article class="week live${popId===w.id?' pop':''}" id="card-${w.id}"><div class="ph" style="background-image:url(${w.img||'img/scrivania.jpg'})"><span class="wn" aria-hidden="true">${num}</span></div><div class="body"><div class="top"><span class="pill">${w.n}${w.date?' · '+w.date:''}</span>${tag}</div><h3>${w.title}</h3><p>${w.desc}</p>${body}</div></article>`;
     }).join('');
