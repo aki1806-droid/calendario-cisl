@@ -186,24 +186,24 @@ footer a{color:#fff}
 
 <script>
 (function(){
-  // Per rilasciare una settimana: metti released:true (hash, tool e pdf devono essere presenti).
+  // Rilascio: released:true, oppure in automatico dalla mezzanotte (ora italiana) del giorno indicato in from.
   const WEEKS = [
     {id:'w1', n:'Settimana 1', date:'1-7 dicembre', img:'img/dep.jpg', canale:'Instagram', dove:'nelle storie di @cislaop su Instagram', released:true, hash:'de067d3d75da2f7fdcadc62a7c3a998232fe31cc63f762f7a58b70236e6c6daf',
      title:'DEP 2026: quanto vale il tuo punteggio', desc:'Calcoli il punteggio, scopri se rientri nella corsia riservata e lo confronti con le soglie del 2023 e del 2025.',
      tool:'strumenti/dep-2026.html', pdf:'scarica/guida-dep-2026.pdf', toolLbl:'Calcola il tuo DEP', pdfLbl:'Guida e scheda DEP 2026'},
-    {id:'w2', n:'Settimana 2', date:'8-14 dicembre', img:'img/progressioni.jpg', canale:'WhatsApp', released:false, hash:'e93b4f42c5c88cba389238b0efe8dcf63be3a5823eae691fe0846a5619a39b20',
+    {id:'w2', n:'Settimana 2', date:'8-14 dicembre', img:'img/progressioni.jpg', canale:'WhatsApp', released:false, from:'2026-12-08', hash:'e93b4f42c5c88cba389238b0efe8dcf63be3a5823eae691fe0846a5619a39b20',
      title:'Progressioni tra aree: hai i requisiti?', desc:'Verifica dei requisiti per i 20 posti e simulatore del punteggio titoli.',
      tool:'strumenti/progressioni-aree-2026.html', pdf:'scarica/guida-progressioni-aree-2026.pdf', toolLbl:'Verifica i tuoi requisiti', pdfLbl:'Guida e scheda progressioni'},
-    {id:'w3', n:'Settimana 3', date:'15-21 dicembre', img:'img/part-time.jpg', canale:'Instagram', dove:'nelle storie di @cislaop su Instagram', released:false, hash:'f6e978d7be539aa32c529dc0e13c5c35d8f60b75c8c8803d5550910630c50603',
+    {id:'w3', n:'Settimana 3', date:'15-21 dicembre', img:'img/part-time.jpg', canale:'Instagram', dove:'nelle storie di @cislaop su Instagram', released:false, from:'2026-12-15', hash:'f6e978d7be539aa32c529dc0e13c5c35d8f60b75c8c8803d5550910630c50603',
      title:'Part time 2026: i 135 posti', desc:'Posti per profilo, orari possibili e calcolo del tuo punteggio in graduatoria.',
      tool:'strumenti/part-time-2026.html', pdf:'scarica/guida-part-time-2026.pdf', toolLbl:'Calcola i tuoi punti', pdfLbl:'Guida e scheda part time'},
-    {id:'w4', n:'Settimana 4', date:'22-28 dicembre', img:'img/notti.jpg', canale:'TikTok', dove:'a voce nel video TikTok di CISL FP AOUP', released:false, hash:'1933354213c8a904bc8c1e161ba3d5f7691fc06ad826606cd53bb76f34b80a3f',
+    {id:'w4', n:'Settimana 4', date:'22-28 dicembre', img:'img/notti.jpg', canale:'TikTok', dove:'a voce nel video TikTok di CISL FP AOUP', released:false, from:'2026-12-22', hash:'1933354213c8a904bc8c1e161ba3d5f7691fc06ad826606cd53bb76f34b80a3f',
      title:'Notti, pronta disponibilità e reparti complessi', desc:'Quanto ti spetta con le quote in più del 2026.',
      tool:'strumenti/notti-pronta-disponibilita-2026.html', pdf:'scarica/guida-notti-pronta-disponibilita-2026.pdf', toolLbl:'Calcola quanto ti spetta', pdfLbl:'Guida e scheda notti'},
-    {id:'w5', n:'Settimana 5', date:'29 dicembre - 4 gennaio', img:'img/orario.jpg', canale:'Instagram', dove:'nelle storie di @cislaop su Instagram', released:false, hash:'a9a27980bb3d3e48ffde7c3657c678b83119ed180a40c315eab96e24626667e0',
+    {id:'w5', n:'Settimana 5', date:'29 dicembre - 4 gennaio', img:'img/orario.jpg', canale:'Instagram', dove:'nelle storie di @cislaop su Instagram', released:false, from:'2026-12-29', hash:'a9a27980bb3d3e48ffde7c3657c678b83119ed180a40c315eab96e24626667e0',
      title:'Il mio orario giusto', desc:'I minuti di vestizione e consegne che ti spettano, turno per turno.',
      tool:'strumenti/orario-vestizione-consegne.html', pdf:'scarica/guida-orario-vestizione-consegne.pdf', toolLbl:'Controlla il tuo orario', pdfLbl:'Guida e scheda orario'},
-    {id:'w6', n:'Settimana 6', date:'5-11 gennaio', img:'img/ferie.jpg', canale:'YouTube', dove:'a voce nello Short YouTube di @cislfpaoup', released:false, hash:'95995d379c2e03279c1ca038475617787afb08c46ef72e400da7c49f18cf2c01',
+    {id:'w6', n:'Settimana 6', date:'5-11 gennaio', img:'img/ferie.jpg', canale:'YouTube', dove:'a voce nello Short YouTube di @cislfpaoup', released:false, from:'2027-01-05', hash:'95995d379c2e03279c1ca038475617787afb08c46ef72e400da7c49f18cf2c01',
      title:'Ferie solidali', desc:'Quanti giorni puoi donare o chiedere, con i moduli pronti.',
      tool:'strumenti/ferie-solidali.html', pdf:'scarica/guida-ferie-solidali.pdf', toolLbl:'Dona o chiedi giorni', pdfLbl:'Guida e moduli ferie solidali'}
   ];
@@ -214,6 +214,7 @@ footer a{color:#fff}
   const icoLock='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
 
   function render(popId){
+    WEEKS.forEach(w=>{ if(!w.released && w.from && Date.now() >= Date.parse(w.from+'T00:00:00+01:00')) w.released = true; });
     const live = WEEKS.filter(w=>w.released), soon = WEEKS.filter(w=>!w.released);
     document.getElementById('live').innerHTML = live.map(w => {
       const open = has(w.id), num = w.n.replace(/\D/g,'');
