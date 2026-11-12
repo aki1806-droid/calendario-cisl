@@ -188,7 +188,7 @@ footer a{color:#fff}
 (function(){
   // Per rilasciare una settimana: metti released:true (hash, tool e pdf devono essere presenti).
   const WEEKS = [
-    {id:'w1', n:'Settimana 1', date:'1-7 dicembre', img:'img/dep.jpg', canale:'Instagram', released:true, hash:'de067d3d75da2f7fdcadc62a7c3a998232fe31cc63f762f7a58b70236e6c6daf',
+    {id:'w1', n:'Settimana 1', date:'1-7 dicembre', img:'img/dep.jpg', canale:'Instagram', dove:'nelle storie di @cislaop su Instagram', released:true, hash:'de067d3d75da2f7fdcadc62a7c3a998232fe31cc63f762f7a58b70236e6c6daf',
      title:'DEP 2026: quanto vale il tuo punteggio', desc:'Calcoli il punteggio, scopri se rientri nella corsia riservata e lo confronti con le soglie del 2023 e del 2025.',
      tool:'strumenti/dep-2026.html', pdf:'scarica/guida-dep-2026.pdf', toolLbl:'Calcola il tuo DEP', pdfLbl:'Guida e scheda DEP 2026'},
     {id:'w2', n:'Settimana 2', date:'8-14 dicembre', img:'img/progressioni.jpg', canale:'WhatsApp', released:false, hash:'e93b4f42c5c88cba389238b0efe8dcf63be3a5823eae691fe0846a5619a39b20',
@@ -211,7 +211,7 @@ footer a{color:#fff}
       const open = has(w.id), num = w.n.replace(/\D/g,'');
       const body = open
         ? `<div class="pair"><a class="use" href="${w.tool}">${icoTool}<span>${w.toolLbl}<small>Strumento da usare online</small></span></a><a href="${w.pdf}" download>${icoPdf}<span>${w.pdfLbl}<small>Guida da scaricare in PDF</small></span></a></div>`
-        : `<div class="lockbox"><label for="in-${w.id}">${icoLock} Scrivi il codice che trovi su ${w.canale}</label><div class="unlock"><input id="in-${w.id}" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Codice"><button type="button" data-w="${w.id}">Sblocca</button></div><p class="err" id="err-${w.id}" aria-live="polite"></p></div>`;
+        : `<div class="lockbox"><label for="in-${w.id}">${icoLock} Scrivi il codice che trovi ${w.dove||'su '+w.canale}</label><div class="unlock"><input id="in-${w.id}" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Codice"><button type="button" data-w="${w.id}">Sblocca</button></div><p class="err" id="err-${w.id}" aria-live="polite"></p></div>`;
       const tag = open ? `<span class="pill ok">Sbloccato</span>` : `<span class="pill y">Codice su ${w.canale}</span>`;
       return `<article class="week live${popId===w.id?' pop':''}" id="card-${w.id}"><div class="ph" style="background-image:url(${w.img||'img/scrivania.jpg'})"><span class="wn" aria-hidden="true">${num}</span></div><div class="body"><div class="top"><span class="pill">${w.n}${w.date?' · '+w.date:''}</span>${tag}</div><h3>${w.title}</h3><p>${w.desc}</p>${body}</div></article>`;
     }).join('');
@@ -227,7 +227,7 @@ footer a{color:#fff}
     const w = WEEKS.find(x=>x.id===id), inp = document.getElementById('in-'+id), err = document.getElementById('err-'+id);
     const v = inp.value.trim().toUpperCase().replace(/\s+/g,'');
     const no = t => { err.textContent = t; inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake'); };
-    if (!v){ no(`Scrivi il codice che trovi su ${w.canale}.`); return; }
+    if (!v){ no(`Scrivi il codice che trovi ${w.dove||'su '+w.canale}.`); return; }
     if (await sha(v) === w.hash){ try{ localStorage.setItem('laconsegna-'+id,'ok'); }catch(e){} render(id); }
     else no('Il codice non è corretto. Controlla di aver preso quello di questa settimana.');
   }
