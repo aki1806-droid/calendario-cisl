@@ -130,6 +130,67 @@ ol.tl{list-style:none;padding:0;margin:18px 0 0;counter-reset:t}
 ol.tl li{counter-increment:t;position:relative;padding:0 0 14px 44px;color:var(--muted);font-size:15px}
 ol.tl li::before{content:counter(t);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font:700 16px "Barlow Semi Condensed",sans-serif;display:flex;align-items:center;justify-content:center}
 ol.tl li b{display:block;color:var(--ink);font-family:"Barlow Semi Condensed",sans-serif;font-size:19px}
+
+/* --- stile 2: stesso linguaggio della pagina principale --- */
+:root{--paper:#F3F7F2;--line:#D5E2D7;--shadow:0 1px 2px rgba(15,68,25,.06),0 12px 32px -14px rgba(15,68,25,.22)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#0B140E;--line:#27392C;--shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -14px rgba(0,0,0,.6)}}
+:root[data-theme="dark"]{--paper:#0B140E;--line:#27392C;--shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -14px rgba(0,0,0,.6)}
+body{-webkit-font-smoothing:antialiased}
+.sign{position:relative;background:#0F4419;padding:22px 20px 70px;overflow:hidden}
+.sign::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 90% -20%,rgba(255,214,0,.18),transparent 60%),radial-gradient(600px 500px at -10% 120%,#1A6B2A,transparent 65%),repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px)}
+.sign::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:40px;background:var(--paper);clip-path:ellipse(75% 100% at 50% 100%)}
+.sign .wrap{position:relative;z-index:1;max-width:680px}
+.sign .lg{border-radius:10px}
+.sign .who{display:table;background:rgba(255,255,255,.12);border-radius:999px;padding:4px 12px;font-size:14px;opacity:1;margin:6px 0 16px}
+.sign h1{font-size:clamp(40px,9vw,64px);font-weight:800;letter-spacing:-.015em;line-height:.98}
+.sign p{font-size:18px}
+.plate{border-radius:8px;padding:7px 14px;box-shadow:0 8px 22px -8px rgba(255,214,0,.6)}
+.back{position:absolute;right:0;top:4px;z-index:2;font:600 15px Barlow,sans-serif;color:#fff;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 14px}
+.back:hover{background:rgba(255,255,255,.1)}
+.back:focus-visible{outline:3px solid #FFD600;outline-offset:2px}
+.steps{position:sticky;top:0;z-index:6;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.steps ol{list-style:none;display:flex;gap:6px;margin:0 auto;padding:10px 20px;max-width:720px;overflow-x:auto;scrollbar-width:none}
+.steps a{display:flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;color:var(--muted);font:600 15px "Barlow Semi Condensed",sans-serif;padding:5px 12px 5px 5px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface)}
+.steps a i{width:24px;height:24px;border-radius:50%;background:var(--line);color:var(--ink);font:700 14px/24px "Barlow Semi Condensed",sans-serif;text-align:center;font-style:normal}
+.steps a.done{color:var(--ink);border-color:#1A6B2A}.steps a.done i{background:#1A6B2A;color:#fff}
+.steps a:focus-visible{outline:3px solid #FFD600;outline-offset:2px}
+main{padding-top:4px;max-width:720px}
+footer,.dock .wrap{max-width:720px}.dock .wrap{padding:0 0}
+section.step{border-left:0;padding:0;margin:38px 0;scroll-margin-top:70px}
+section.step > .num{display:inline-flex;align-items:center;gap:8px;background:var(--green-soft);border-radius:999px;padding:4px 12px;text-transform:uppercase;letter-spacing:.04em;font-size:14px}
+section.step.done > .num{background:#1A6B2A;color:#fff}
+section.step.done > .num::before{content:"✓"}
+.step h2{font-size:clamp(32px,6vw,40px);font-weight:800;margin:10px 0 6px;letter-spacing:-.01em}
+.q{border-radius:18px;padding:18px;margin:14px 0;box-shadow:var(--shadow)}
+.q > span{font:700 20px/1.2 "Barlow Semi Condensed",sans-serif;margin-bottom:10px}
+.seg span{padding:9px 16px;border-width:2px;font-weight:600;transition:transform .12s ease}
+.seg label:hover span{border-color:#1A6B2A}
+.seg input{z-index:1}
+input[type=number],input[type=date],select{border-radius:12px;border-width:2px}
+.verdict{border-radius:14px;padding:16px 18px;font:700 20px/1.25 "Barlow Semi Condensed",sans-serif;box-shadow:var(--shadow)}
+.verdict p{font:400 16px/1.5 Barlow,sans-serif}
+.mini b{font-size:30px}
+.score{border-radius:22px;padding:28px 24px;position:relative;overflow:hidden;background:#0F4419;box-shadow:0 24px 50px -22px rgba(15,68,25,.7)}
+.score::before{content:"";position:absolute;right:-70px;top:-70px;width:240px;height:240px;border-radius:50%;background:rgba(255,214,0,.14)}
+.score > *{position:relative}
+.score .big{font-weight:800;font-size:clamp(76px,22vw,120px)}
+.bar{height:16px;border-radius:8px}
+.flag{border-radius:12px;border-left:4px solid #FFD600}
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:6px 12px;box-shadow:var(--shadow)}
+.tbl table{margin-top:0}.tbl tr:last-child td{border-bottom:0}
+.dock{box-shadow:0 -10px 30px -16px rgba(15,68,25,.35);border-top:0}
+.dock .t{font-weight:800;font-size:34px}
+.dock button{font:700 18px "Barlow Semi Condensed",sans-serif;border-radius:12px;padding:12px 20px;background:#1A6B2A;color:#fff !important}
+.gate{background:#0F4419;color:#fff}
+.gate::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 400px at 90% -10%,rgba(255,214,0,.18),transparent 60%),repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 2px,transparent 2px 22px)}
+.gate .box{position:relative;background:#fff;color:#16231A;border-radius:24px;padding:28px 24px;box-shadow:0 30px 70px -20px rgba(0,0,0,.6)}
+.gate .box::before{content:"";display:block;width:54px;height:54px;border-radius:16px;margin-bottom:16px;background:#FFD600 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230F4419' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E") center/28px no-repeat}
+.gate h2{font-weight:800;color:#0F4419}.gate p{color:#55665A}.gate .err{color:#C0392B}
+.gate input{background:#fff;color:#16231A;border-color:#D5E2D7;border-radius:12px}
+.gate button{font:700 19px "Barlow Semi Condensed",sans-serif;border-radius:12px;background:#1A6B2A;color:#fff}
+.gate .home{display:block;text-align:center;margin-top:14px;color:#1A6B2A;font-weight:600}
+footer{font-size:14.5px}
+@media (prefers-reduced-motion: reduce){.seg span{transition:none}}
 </style>
 </head>
 <body>
@@ -556,6 +617,18 @@ ol.tl li b{display:block;color:var(--ink);font-family:"Barlow Semi Condensed",sa
   document.querySelectorAll('main input, main select').forEach(el=>{ el.addEventListener('input',calc); el.addEventListener('change',calc); });
   $('goRes').addEventListener('click', ()=> $('s4').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth'}));
   calc();
+})();
+</script>
+<script>
+(function(){
+  const secs=[...document.querySelectorAll('section.step')]; if(!secs.length) return;
+  const nav=document.createElement('nav'); nav.className='steps'; nav.setAttribute('aria-label','Passi');
+  nav.innerHTML='<ol>'+secs.map((s,i)=>`<li><a href="#${s.id}" data-s="${s.id}"><i>${i+1}</i>${s.querySelector('h2').textContent}</a></li>`).join('')+'</ol>';
+  document.querySelector('main').before(nav);
+  const sync=()=>secs.forEach(s=>nav.querySelector(`[data-s="${s.id}"]`).classList.toggle('done',s.classList.contains('done')));
+  secs.forEach(s=>new MutationObserver(sync).observe(s,{attributes:true,attributeFilter:['class']})); sync();
+  const w=document.querySelector('.sign .wrap'); const a=document.createElement('a'); a.className='back'; a.href='../index.html'; a.textContent='← La Consegna'; w.prepend(a);
+  const g=document.querySelector('.gate .box'); if(g){ const h=document.createElement('a'); h.className='home'; h.href='../index.html'; h.textContent='Torna a La Consegna'; g.append(h); }
 })();
 </script>
 </body>
